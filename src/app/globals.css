@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --brand: #1a5c38; --accent: #c9922a; }
+html { scroll-behavior: smooth; }
+body { background: #ffffff; color: #0f172a; font-family: "Source Sans Pro", sans-serif; }
+h1,h2,h3,h4,h5,h6 { font-family: "Merriweather", serif; }

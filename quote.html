@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote | Mobile Home Park Insurance | MHP & Manufactured Housing Community Coverage</title>
+  <meta name="description" content="Request a commercial insurance quote for your mobile home park or manufactured housing community. Takes 2 minutes. Quote back within 24 hours. All 50 states.">
+  <link rel="canonical" href="https://mobilehomeparkinsurance.com/quote.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Contractors Choice Agency">
+
+  <style>
+    :root {
+      --bg: #0a1628;
+      --bg-card: #0f2040;
+      --bg-card2: #0d1c35;
+      --accent: #2ea3f2;
+      --accent-light: #60c0ff;
+      --accent-glow: rgba(46, 163, 242, 0.18);
+      --text: #e8f0fe;
+      --text-muted: #8ba3c7;
+      --border: rgba(46, 163, 242, 0.15);
+      --green: #22d3a0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo { font-size: 1.1rem; font-weight: 800; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-back:hover { color: var(--accent); }
+
+    main { padding-top: 68px; min-height: 100vh; }
+
+    .quote-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .quote-wrap { grid-template-columns: 1fr; }
+      .quote-sidebar { order: -1; }
+    }
+
+    .quote-intro .badge {
+      display: inline-block;
+      background: var(--accent-glow);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .quote-intro h1 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .quote-intro h1 span { color: var(--accent); }
+
+    .quote-intro p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+
+    .quote-perks { list-style: none; margin-bottom: 2rem; }
+
+    .quote-perks li { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem; }
+
+    .perk-icon {
+      width: 36px; height: 36px;
+      background: var(--accent-glow);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .perk-text strong { display: block; font-size: 0.92rem; font-weight: 600; margin-bottom: 0.15rem; }
+    .perk-text span { font-size: 0.83rem; color: var(--text-muted); }
+
+    .quote-contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .quote-contact-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+
+    .quote-contact-box a {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .quote-contact-box a:hover { color: var(--accent-light); }
+    .quote-contact-box .sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0; }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+    }
+
+    .form-card h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.35rem; letter-spacing: -0.02em; }
+    .form-card .form-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+    .form-group { margin-bottom: 1.1rem; }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: rgba(10, 22, 40, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-size: 0.93rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: #4a6080; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238ba3c7' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    select option { background: #0f2040; color: var(--text); }
+    textarea { resize: vertical; min-height: 90px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+    .honeypot { display: none !important; }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 20px rgba(46, 163, 242, 0.3);
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-light);
+      box-shadow: 0 6px 28px rgba(46, 163, 242, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-legal { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 1rem; line-height: 1.5; }
+
+    .success-msg { display: none; text-align: center; padding: 2rem 1rem; }
+    .success-msg .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .success-msg h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--green); }
+    .success-msg p { color: var(--text-muted); font-size: 0.93rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .success-msg a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+    footer { background: #060e1c; border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+    footer p { font-size: 0.82rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>MHP</span>Insurance</a>
+    <a href="/" class="nav-back">← Back to Home</a>
+  </div>
+</nav>
+
+<main>
+  <div class="quote-wrap">
+
+    <div class="quote-intro">
+      <div class="badge">Free Quote · No Obligation</div>
+      <h1>Get Your <span>MHP Insurance Quote</span><br>in 24 Hours</h1>
+      <p>Tell us about your mobile home park or manufactured housing community and we'll come back with real numbers from carriers that specialize in MHP coverage. No generic commercial landlord policies — we know the difference between park-owned homes and tenant lots.</p>
+
+      <ul class="quote-perks">
+        <li>
+          <div class="perk-icon">⚡</div>
+          <div class="perk-text">
+            <strong>24-Hour Turnaround</strong>
+            <span>Most MHP quotes are back the same or next business day.</span>
+          </div>
+        </li>
+        <li>
+          <div class="perk-icon">🏘️</div>
+          <div class="perk-text">
+            <strong>Parks from 10 to 500+ Lots</strong>
+            <span>Small family parks and large communities both qualify.</span>
+          </div>
+        </li>
+        <li>
+          <div class="perk-icon">🛡️</div>
+          <div class="perk-text">
+            <strong>GL, Property, Umbrella &amp; Flood</strong>
+            <span>We quote your full coverage stack — not just one line.</span>
+          </div>
+        </li>
+        <li>
+          <div class="perk-icon">📋</div>
+          <div class="perk-text">
+            <strong>Specialized MHP Carriers</strong>
+            <span>Programs that understand the MHP business — not generic commercial.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="quote-contact-box">
+        <p>Prefer to speak with someone first?</p>
+        <a href="tel:8449675247">📞 844-967-5247</a>
+        <a href="mailto:josh@contractorschoiceagency.com" style="font-size:0.9rem;">✉ josh@contractorschoiceagency.com</a>
+        <p class="sub">Mon–Fri 8am–6pm CST</p>
+      </div>
+    </div>
+
+    <div class="quote-sidebar">
+      <div class="form-card">
+        <h2>Request a Quote</h2>
+        <p class="form-sub">2 minutes. No commitment. Real answer within 24 hours.</p>
+
+        <form
+          name="quote"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          id="quoteForm"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="quote">
+
+          <div class="honeypot">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Alex Johnson" required>
+          </div>
+
+          <div class="form-group">
+            <label for="business">Business / Park Name</label>
+            <input type="text" id="business" name="business_name" placeholder="Sunset Mobile Home Park LLC">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="alex@yourpark.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="state">State *</label>
+            <select id="state" name="state" required>
+              <option value="">Select state</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="years_owning">Years Owning Park</label>
+              <select id="years_owning" name="years_owning">
+                <option value="">Select</option>
+                <option>Less than 1 year</option>
+                <option>1–3 years</option>
+                <option>3–5 years</option>
+                <option>5–10 years</option>
+                <option>10–20 years</option>
+                <option>20+ years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="num_lots">Number of Lots</label>
+              <select id="num_lots" name="num_lots">
+                <option value="">Select</option>
+                <option>10–50</option>
+                <option>51–100</option>
+                <option>101–200</option>
+                <option>200+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="park_type">Park Type</label>
+            <select id="park_type" name="park_type">
+              <option value="">Select park type</option>
+              <option>Mobile home only</option>
+              <option>RV park only</option>
+              <option>Mixed MH / RV</option>
+              <option>Age-restricted 55+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="annual_rents">Annual Gross Rents (Approximate)</label>
+            <select id="annual_rents" name="annual_rents">
+              <option value="">Select range</option>
+              <option>Under $100,000</option>
+              <option>$100,000–$250,000</option>
+              <option>$250,000–$500,000</option>
+              <option>$500,000–$1,000,000</option>
+              <option>$1,000,000–$2,500,000</option>
+              <option>$2,500,000+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="park_owned_homes">Do You Own Any Homes in the Park?</label>
+            <select id="park_owned_homes" name="park_owned_homes">
+              <option value="">Select</option>
+              <option value="yes">Yes — I own some or all of the homes</option>
+              <option value="no">No — tenants own their own homes</option>
+              <option value="mixed">Mixed — some park-owned, some tenant-owned</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Details / Coverage Questions</label>
+            <textarea id="message" name="message" placeholder="e.g., number of park-owned homes, flood zone status, existing insurer, specific coverage needs, or any claims in the last 3 years..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            Request My Quote →
+          </button>
+
+          <p class="form-legal">
+            By submitting this form you agree to be contacted by a licensed agent. We never sell your information.
+          </p>
+        </form>
+
+        <div class="success-msg" id="successMsg">
+          <div class="success-icon">✅</div>
+          <h3>Quote Request Received!</h3>
+          <p>Thanks — we'll review your park details and get back to you within 24 hours (usually same business day). Check your email for a confirmation.</p>
+          <p>Questions while you wait? Call <a href="tel:8449675247">844-967-5247</a> or email <a href="mailto:josh@contractorschoiceagency.com">josh@contractorschoiceagency.com</a>.</p>
+          <a href="/" style="display:inline-block;margin-top:1rem;background:var(--accent);color:#fff;padding:0.75rem 1.5rem;border-radius:8px;font-weight:700;text-decoration:none;">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Mobile Home Park Insurance — a program of Contractors Choice Agency. Licensed insurance agency. All rights reserved.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('quoteForm');
+  const successMsg = document.getElementById('successMsg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const state = document.getElementById('state').value;
+
+    if (!name || !email || !state) {
+      alert('Please fill in all required fields (marked with *).');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      try {
+        await fetch('https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=mobilehomeparkinsurance.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            form_name: 'quote',
+            site: 'mobilehomeparkinsurance.com',
+            name: formData.get('name'),
+            business_name: formData.get('business_name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            state: formData.get('state'),
+            years_owning: formData.get('years_owning'),
+            num_lots: formData.get('num_lots'),
+            park_type: formData.get('park_type'),
+            annual_rents: formData.get('annual_rents'),
+            park_owned_homes: formData.get('park_owned_homes'),
+            message: formData.get('message'),
+          }),
+        });
+      } catch (_) {
+        // Webhook failure is non-blocking
+      }
+
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request My Quote →';
+      alert('Something went wrong. Please try again or call 844-967-5247.');
+    }
+  });
+</script>
+
+</body>
+</html>
