@@ -36,3 +36,6 @@ next-env.d.ts
 # deploy keys
 deploy_key
 deploy_key.pub
+
+# Local Netlify folder
+.netlify
