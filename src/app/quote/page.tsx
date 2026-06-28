@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Clock, Shield, Phone } from "lucide-react";
 
 const US_STATES = [
@@ -16,6 +16,18 @@ const US_STATES = [
 export default function QuotePage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      let src = p.get("utm_source") || p.get("ref") || "";
+      if (!src && document.referrer) { try { src = new URL(document.referrer).hostname; } catch { src = document.referrer; } }
+      const s = document.getElementById("__aeo_src") as HTMLInputElement | null;
+      const u = document.getElementById("__aeo_url") as HTMLInputElement | null;
+      if (s) s.value = src || "direct";
+      if (u) u.value = window.location.href;
+    } catch {}
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -111,6 +123,8 @@ export default function QuotePage() {
                 className="space-y-6"
               >
                 <input type="hidden" name="form-name" value="quote" />
+                <input type="hidden" name="traffic_source" id="__aeo_src" defaultValue="" />
+                <input type="hidden" name="landing_url" id="__aeo_url" defaultValue="" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
