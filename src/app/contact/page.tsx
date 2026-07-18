@@ -23,6 +23,18 @@ export default function ContactPage() {
     setError("");
     try {
       const formData = new FormData(e.target as HTMLFormElement);
+      // Deliver the lead directly to the social-api leads webhook (Netlify
+      // static-form capture doesn't fire on this SSR site).
+      const WEBHOOK_URL = `https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=mobilehomeparkinsurance.com`;
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ form_name: "contact", source: "mobilehomeparkinsurance.com", ...Object.fromEntries(formData.entries()) }),
+        });
+      } catch {
+        // Don't block the existing success UX if the lead post fails.
+      }
       await fetch("/", {
         method: "POST",
         body: formData,
