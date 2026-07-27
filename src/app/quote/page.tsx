@@ -46,7 +46,7 @@ export default function QuotePage() {
       } catch {
         // Don't block the existing success UX if the lead post fails.
       }
-      await fetch("/", {
+      await fetch('/__forms.html', {
         method: "POST",
         body: formData,
       });
