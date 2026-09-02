@@ -213,6 +213,86 @@ export default function QuotePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Property street address *
+                    </label>
+                    <input
+                      type="text"
+                      name="property_street_address"
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      City *
+                    </label>
+                    <input
+                      type="text"
+                      name="city"
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      ZIP *
+                    </label>
+                    <input
+                      type="text"
+                      name="zip"
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Mailing address (if different)
+                    </label>
+                    <input
+                      type="text"
+                      name="mailing_address"
+                      
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Date of birth
+                    </label>
+                    <input
+                      type="date"
+                      name="date_of_birth"
+                      
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Current policy number
+                    </label>
+                    <input
+                      type="text"
+                      name="current_policy_number"
+                      
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Current policy expiration
+                    </label>
+                    <input
+                      type="date"
+                      name="current_policy_expiration_date"
+                      
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors bg-white"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
                       Community Type *
                     </label>
                     <select
