@@ -351,6 +351,10 @@ export default function QuotePage() {
                   />
                 </div>
 
+                <p className="text-center text-slate-500 text-xs">
+                  By submitting this form you agree to be contacted by a licensed insurance agent.
+                  NPN: 8608479. Licensed in all 50 states.
+                </p>
                 <button
                   type="submit"
                   className="w-full bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
@@ -358,10 +362,6 @@ export default function QuotePage() {
                   Submit Quote Request
                 </button>
 
-                <p className="text-center text-slate-500 text-xs">
-                  By submitting this form you agree to be contacted by a licensed insurance agent.
-                  NPN: 8608479. Licensed in all 50 states.
-                </p>
               </form>
             </div>
           )}
