@@ -355,61 +355,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 8 — Testimonials */}
-      <section className="py-20 bg-[#f7f5f2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-              What Park Owners Say
-            </h2>
-            <p className="text-lg text-slate-600">
-              Mobile home park operators from across the country trust Contractors Choice Agency.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                quote:
-                  "After our water main burst and flooded three lots, I was glad we had the right coverage. The claims process was smooth and we were back to full rent roll within four months. Josh made sure our policy actually covered underground infrastructure — most agents miss that.",
-                name: "Robert M.",
-                business: "Pine Ridge Mobile Home Community",
-                location: "Tennessee",
-              },
-              {
-                quote:
-                  "We were paying too much with our previous broker and had gaps in our coverage we didn't know about. Josh reviewed our program, restructured our GL limits, and added loss of rents coverage we were missing. We're better covered and paying less annually.",
-                name: "Sandra K.",
-                business: "Lakeside MHC",
-                location: "Florida",
-              },
-              {
-                quote:
-                  "Running an RV park with a pool is a significant liability exposure. Josh understood that from the first conversation and recommended appropriate umbrella limits. When we had a minor pool incident last season, we were very glad we had the coverage structure he recommended.",
-                name: "David T.",
-                business: "Desert Sun RV Resort",
-                location: "Arizona",
-              },
-            ].map((t, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-4 h-4 text-accent fill-accent" />
-                  ))}
-                </div>
-                <blockquote className="text-slate-700 text-sm leading-relaxed mb-6">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div>
-                  <div className="font-semibold text-slate-900">{t.name}</div>
-                  <div className="text-sm text-slate-500">{t.business}</div>
-                  <div className="text-xs text-slate-400 mt-1">{t.location}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Section 9 — FAQ */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
