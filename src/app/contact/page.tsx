@@ -21,26 +21,33 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
+    const formData = new FormData(e.target as HTMLFormElement);
+    // Deliver the lead directly to the social-api leads webhook (Netlify
+    // static-form capture doesn't fire on this SSR site).
+    const WEBHOOK_URL = `https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=mobilehomeparkinsurance.com`;
+    // A lead is captured if EITHER delivery channel ACCEPTED it. Both are
+    // awaited and checked explicitly - fetch() does not reject on a 4xx/5xx.
+    let captured = false;
     try {
-      const formData = new FormData(e.target as HTMLFormElement);
-      // Deliver the lead directly to the social-api leads webhook (Netlify
-      // static-form capture doesn't fire on this SSR site).
-      const WEBHOOK_URL = `https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=mobilehomeparkinsurance.com`;
-      try {
-        await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ form_name: "contact", source: "mobilehomeparkinsurance.com", ...Object.fromEntries(formData.entries()) }),
-        });
-      } catch {
-        // Don't block the existing success UX if the lead post fails.
-      }
-      await fetch('/__forms.html', {
+      const res1 = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ form_name: "contact", source: "mobilehomeparkinsurance.com", ...Object.fromEntries(formData.entries()) }),
+      });
+      captured = res1.ok || captured;
+    } catch {
+      // Don't block the second channel if the lead post fails.
+    }
+    try {
+      const res2 = await fetch('/__forms.html', {
         method: "POST",
         body: formData,
       });
+      captured = res2.ok || captured;
+    } catch {}
+    if (captured) {
       setSubmitted(true);
-    } catch {
+    } else {
       setError("There was an error submitting the form. Please call us at 844-967-5247.");
     }
   };
