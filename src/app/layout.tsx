@@ -54,7 +54,6 @@ export const metadata: Metadata = {
     images: ["https://mobilehomeparkinsurance.com/images/og-image.jpg"],
   },
   metadataBase: new URL("https://mobilehomeparkinsurance.com"),
-  alternates: { canonical: "/" },
 };
 
 const jsonLd = {
